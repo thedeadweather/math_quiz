@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[create show]
 
-  resources :games, only: %i[create show] do
+  resources :games, only: %i[create show new] do
     put 'answer', on: :member
   end
 end

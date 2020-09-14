@@ -10,26 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_144620) do
-
-  create_table "game_questions", force: :cascade do |t|
-    t.integer "game_id"
-    t.integer "question_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["game_id"], name: "index_game_questions_on_game_id"
-    t.index ["question_id"], name: "index_game_questions_on_question_id"
-  end
+ActiveRecord::Schema.define(version: 2020_09_14_101231) do
 
   create_table "games", force: :cascade do |t|
     t.datetime "finished_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "questions", force: :cascade do |t|
-    t.string "text"
-    t.boolean "correct", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -46,6 +30,4 @@ ActiveRecord::Schema.define(version: 2020_09_13_144620) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "game_questions", "games"
-  add_foreign_key "game_questions", "questions"
 end

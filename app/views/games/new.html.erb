@@ -1,0 +1,27 @@
+<h3>Новая игра</h3>
+<p>Сколько примеров желаете решить?</p>
+
+
+  <% if flash.any? %>
+    <% flash.each do |key, value| %>
+      <div class="mt-3 alert alert-primary col align-items-center">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <ul>
+          <li>
+            <%= value %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>  
+
+
+  <%= form_with(url: games_path, method: :post, local: true) do |f| %>
+  <div>
+    <%= f.text_field :amount, autocomplete: '10' %><br /> 
+    <em>от 10 до 100 примеров</em>
+  </div>
+  <div>
+    <%= f.submit "Поехали" %>
+  </div>
+  <% end %>

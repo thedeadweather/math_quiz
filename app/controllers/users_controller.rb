@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!, except: [:show]
+  before_action :set_current_user, except: [:show]
 
-  def create
+  def index
+    @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
+  end
+
+  private
+
+  def set_current_user
+    @user = current_user
   end
 end
