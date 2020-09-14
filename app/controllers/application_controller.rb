@@ -11,4 +11,13 @@ class ApplicationController < ActionController::Base
       keys: [:name, :age, :password, :password_confirmation, :current_password]
     )
   end
+
+  def check_answer!(user_a, correct_a)
+    case user_a
+    when correct_a
+      @game.correct += 1
+    else
+      @game.incorrect += 1
+    end
+  end
 end

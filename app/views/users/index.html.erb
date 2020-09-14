@@ -1,5 +1,18 @@
 <h3 class="mt-2">Все игроки</h3>
 
+<% if flash.any? %>
+  <% flash.each do |key, value| %>
+    <div class="mt-2 alert alert-primary col align-items-center">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+
 <div class="d-inline-flex">
   <% @users.each do |user| %>
      <div class="border rounded mr-2 p-2 text-center bg-light">

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users, only: %i[index show] do
-    resources :games, only: %i[create show new] do
+    resources :games, only: %i[create show new destroy] do
       put 'answer', on: :member
     end
   end

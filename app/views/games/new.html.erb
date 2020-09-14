@@ -1,14 +1,12 @@
 <h3 class="mt-2">Новая игра</h3>
-<p class="mt-2">Сколько примеров желаете решить?</p>
-
 
 <%= form_for [@new_game.user, @new_game] do |f| %>
   <div class="form-field">
-    <%= f.label "Сколько примеров хотите решить", class: 'form-label' %>
-    <%= f.number_field :attempt, in: 10..100, step: 1, class: 'form-textarea' %><br />
+    <%= f.label "Сколько примеров хотите решить?", class: 'form-label' %><br/>
+    <%= f.number_field :attempt, in: 10..100, step: 1, class: 'form-textarea' %><br/>
     <em>от 10 до 100 примеров</em>
   </div>
-  <div class="form-action">
-    <%= f.submit 'Начать игру', class: 'button button-green' %>
+  <div class="form-action mt-2">
+    <%= f.submit 'Начать игру', class: 'btn btn-info' %>
   </div>
 <% end %>

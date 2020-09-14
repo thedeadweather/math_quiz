@@ -14,14 +14,14 @@
 <% end %>
 
 <% if @game.finished_at.blank? %>
-  <div>
-  	<p>Решите пример:</p>
-    <h4><%= @question.to_s %></h4>
+  <div class="mb-4">
+  	<p>Решите пример (осталось <%= @game.attempt.to_i - @total %>)</p>
+    <h3 class="text-primary"><%= @question.to_s %></h3>
   </div>
   <div>
     <%= form_with(url: answer_user_game_path(@game.user, @game), method: :put, local: true) do |f| %>
       <%= hidden_field_tag 'correct', @question.answer %>
-      <%= f.label 'Ваш ответ' %>  
+      <%= f.label 'Ваш ответ:' %> 
       <%= f.text_field :answer %>  
     <% end %>
   </div>

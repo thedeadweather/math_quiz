@@ -4,3 +4,9 @@
   <p>Возраст: <%= @user.age %></p>
   <p>Всего игр: <%= @user.games.count %></p>
 </div>
+
+<% if @user == current_user %>
+  <div class="container pb-2">
+   <%= link_to 'Настройки аккаунта', edit_user_registration_path, class: "btn btn-outline-primary" %>
+  </div>
+<% end %>

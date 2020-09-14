@@ -4,4 +4,10 @@
   <p>всего примеров: <%= game.attempt %></p>
   <p>общее время решения: <%= total_time(game) %></p>
   <p>среднее время решения одного примера: <%= average_time(game) %></p>
+  
+  <% if game.user == current_user %>
+    <%= link_to 'Удалить игру', user_game_path(game.user, game),
+      method: :delete, data: {confirm: 'Точно удалить?'}, class: "btn btn-outline-warning btn-sm" %>
+  <% end %>
 </div>
+
