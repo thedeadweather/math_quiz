@@ -7,6 +7,8 @@ class GamesController < ApplicationController
   end
 
   def create
+    # перед началом новой игры
+    # удаляем незавершенные
     Game.where(finished_at: nil).destroy_all
     @game = current_user.games.build(game_params)
 
@@ -18,21 +20,27 @@ class GamesController < ApplicationController
   end
 
   def show
+    # каждый раз создаем пример и передаем во вьюху
     @question = @game.create_question
     @total = @game.correct.to_i + @game.incorrect.to_i
   end
 
   def answer
     total = @game.correct.to_i + @game.incorrect.to_i
+    # принимаем от params правильный ответ
+    # и ответ пользователя
     user_answer = params[:answer]
     correct_answer = params[:correct]
 
+    # если попытки закончились завершаем игру
+    # и ставим время завершения
     if @game.attempt.to_i - total == 1
       check_answer!(user_answer, correct_answer)
       @game.finished_at = Time.now
       @game.save!
       redirect_to user_game_path(@game.user, @game), notice: 'игра окончена'
     else
+      # либо продолжаем выводить show игры
       check_answer!(user_answer, correct_answer)
       @game.save!
       redirect_to user_game_path(@game.user, @game), notice: 'следующий вопрос'

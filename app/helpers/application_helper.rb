@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # хелперы для вывода информации о времени игры
   def average_time(game)
     total = game.finished_at.to_time - game.created_at.to_time
     "#{(total / game.attempt).round(2)} сек."

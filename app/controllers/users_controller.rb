@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # скоуп finished прописан в модели games
     @games = @user.games.finished
   end
 

@@ -9,6 +9,7 @@ class Game < ApplicationRecord
 
   scope :finished, -> { where "finished_at IS NOT NULL" }
 
+  # игра будет генерить вопросы из lib/question.rb
   def create_question
     Question.generate_question
   end

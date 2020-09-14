@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  # хелпер для проверки ответов, используемый в контроллере игры
   def check_answer!(user_a, correct_a)
     case user_a
     when correct_a

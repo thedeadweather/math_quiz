@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# авторизация и аутентификация через девайс
 gem 'devise'
 
 group :development, :test do
@@ -52,6 +53,7 @@ group :test do
   gem 'webdrivers'
 end
 
+# для деплоя берем базу pg
 group :production do
   gem 'pg'
 end

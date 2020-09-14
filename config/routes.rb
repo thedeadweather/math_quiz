@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
+  # для удобства ресурсы делаем вложенными
+  # тк игры без юзера не может быть
   resources :users, only: %i[index show] do
     resources :games, only: %i[create show new destroy] do
       put 'answer', on: :member
