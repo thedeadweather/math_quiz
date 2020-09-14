@@ -1,1 +1,28 @@
-<p>Show page of game</p>
+<h3>Страница Игры</h3>
+
+<% if flash.any? %>
+    <% flash.each do |key, value| %>
+      <div class="mt-3 alert alert-primary col align-items-center">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <ul>
+          <li>
+            <%= value %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+<% if @game.finished_at.blank? %>
+ 
+  <h4><%= @question.to_s %></h4>
+
+  <%= form_with(url: answer_user_game_path(@game.user, @game), method: :put, local: true) do |f| %>
+    <%= hidden_field_tag 'correct', @question.answer  %>
+    <%= f.text_field :answer %>  
+  <% end %>
+<% else %>
+  <p>правильных ответов: <%= @game.correct %></p>
+  <p>неправильных ответов: <%= @game.incorrect %></p>
+  <p>игра завершена: <%= @game.finished_at %></p>
+<% end %>

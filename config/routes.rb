@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  resources :users, only: %i[create show]
-
-  resources :games, only: %i[create show new] do
-    put 'answer', on: :member
+  resources :users, only: %i[index show] do
+    resources :games, only: %i[create show new] do
+      put 'answer', on: :member
+    end
   end
 end

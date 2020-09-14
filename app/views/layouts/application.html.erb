@@ -28,7 +28,7 @@
             </ul>
 
             <% if current_user %>
-              <%= link_to 'Новая игра', new_game_path, class: 'btn navbar-btn btn-danger btn-xs' %>
+              <%= link_to 'Новая игра', new_user_game_path(current_user), class: 'btn navbar-btn btn-danger btn-xs' %>
             <% end %>
           </div>  
         </div>
