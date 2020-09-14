@@ -14,15 +14,16 @@
   <% end %>
 
 <% if @game.finished_at.blank? %>
- 
-  <h4><%= @question.to_s %></h4>
-
-  <%= form_with(url: answer_user_game_path(@game.user, @game), method: :put, local: true) do |f| %>
-    <%= hidden_field_tag 'correct', @question.answer  %>
-    <%= f.text_field :answer %>  
-  <% end %>
+  <div>
+    <h4><%= @question.to_s %></h4>
+  </div>
+  <div>
+    <%= form_with(url: answer_user_game_path(@game.user, @game), method: :put, local: true) do |f| %>
+      <%= hidden_field_tag 'correct', @question.answer %>
+      <%= f.label 'Ваш ответ' %>  
+      <%= f.text_field :answer %>  
+    <% end %>
+  </div>
 <% else %>
-  <p>правильных ответов: <%= @game.correct %></p>
-  <p>неправильных ответов: <%= @game.incorrect %></p>
-  <p>игра завершена: <%= @game.finished_at %></p>
+  <%= render partial: 'games/game', object: @game %>
 <% end %>

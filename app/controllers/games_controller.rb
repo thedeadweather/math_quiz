@@ -36,7 +36,6 @@ class GamesController < ApplicationController
       else
         @game.incorrect += 1
       end
-
       @game.save!
       redirect_to user_game_path(@game.user, @game), notice: 'следующий вопрос'
     end

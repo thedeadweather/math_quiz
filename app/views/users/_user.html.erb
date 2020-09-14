@@ -1,3 +1,6 @@
 <div>
-  <p><%= link_to user.name, user_path(user) %></p>
+  <p><%= @user.name %></p>
+  <p><%= @user.email %></p>
+  <p>возраст: <%= @user.age %></p>
+  <p>всего игр: <%= @user.games.count %></p>
 </div>

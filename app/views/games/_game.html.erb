@@ -1,0 +1,7 @@
+<div class="border border-info mt-2">
+  <p>пройдена: <%= game.finished_at.strftime("%-d/%-m/%y: %H:%M %Z") %></p>
+  <p>правильных ответов: <%= game.correct %></p>
+  <p>всего примеров: <%= game.attempt %></p>
+  <p>общее время решения: <%= total_time(game) %></p>
+  <p>среднее время решения одного примера: <%= average_time(game) %></p>
+</div>

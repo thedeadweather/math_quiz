@@ -1,3 +1,9 @@
-<h3>Главная страница со всеми пользователями</h3>
+<h3>Все игроки</h3>
 
-<%= render partial: 'users/user', collection: @users %>
+<% @users.each do |user| %>
+   <div class="border border-dark">
+     <p><%= user.name %></p>
+     <p>возраст: <%= user.age %></p> 
+     <p><%= link_to user.email, user_path(user) %></p>
+  </div>
+<% end %>
