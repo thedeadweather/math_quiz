@@ -1,9 +1,10 @@
-<h3>Все игроки</h3>
+<h3 class="mt-2">Все игроки</h3>
 
-<% @users.each do |user| %>
-   <div class="border border-dark">
-     <p><%= user.name %></p>
-     <p>возраст: <%= user.age %></p> 
-     <p><%= link_to user.email, user_path(user) %></p>
-  </div>
-<% end %>
+<div class="d-inline-flex">
+  <% @users.each do |user| %>
+     <div class="border rounded mr-2 p-2 text-center bg-light">
+       <p><%= link_to user.name, user_path(user) %></p>
+       <p>возраст: <%= user.age %></p> 
+    </div>
+  <% end %>
+</div>

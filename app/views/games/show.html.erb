@@ -1,20 +1,21 @@
 <h3>Страница Игры</h3>
 
 <% if flash.any? %>
-    <% flash.each do |key, value| %>
-      <div class="mt-3 alert alert-primary col align-items-center">
-        <a href="#" data-dismiss="alert" class="close">×</a>
-        <ul>
-          <li>
-            <%= value %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
+  <% flash.each do |key, value| %>
+    <div class="mt-3 alert alert-primary col align-items-center">
+      <a href="#" data-dismiss="alert" class="close">×</a>
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+    </div>
   <% end %>
+<% end %>
 
 <% if @game.finished_at.blank? %>
   <div>
+  	<p>Решите пример:</p>
     <h4><%= @question.to_s %></h4>
   </div>
   <div>

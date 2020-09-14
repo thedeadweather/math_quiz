@@ -15,7 +15,7 @@
     <nav class="navbar navbar-expand navbar-default bg-light">
       <div class="collapse navbar-collapse navbar-responsive-collapse"> 
         <div class="container justify-content-start">
-          <%= link_to "Speed Math", root_path, class: 'navbar-brand' %>
+          <%= link_to "MathQuiz", root_path, class: 'navbar-brand' %>
           <div class="nav">
             <ul class="navbar-nav">
               <% if user_signed_in? %>
@@ -28,7 +28,7 @@
             </ul>
 
             <% if current_user %>
-              <%= link_to 'Новая игра', new_user_game_path(current_user), class: 'btn navbar-btn btn-danger btn-xs' %>
+              <%= link_to 'Новая игра', new_user_game_path(current_user), class: 'btn navbar-btn btn-outline-success btn-xs' %>
             <% end %>
           </div>  
         </div>
@@ -44,8 +44,8 @@
         </div><!--/span-->
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Balance Platform test case</p>
+      <footer class="mt-3">
+        <p>test case BalancePlatform&copy;</p>
       </footer>
     </div>
   </body>
