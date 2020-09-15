@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 2020_09_15_000557) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
     t.datetime "remember_created_at"
-    t.index "\"reset_password_token\"", name: "index_users_on_reset_password_token"
+    t.string "reset_password_token"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "games", "users"
