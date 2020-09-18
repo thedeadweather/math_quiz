@@ -8,8 +8,8 @@ class GamesController < ApplicationController
 
   def create
     # перед началом новой игры
-    # удаляем незавершенные
-    Game.where(finished_at: nil).destroy_all
+    # удаляем незавершенные текущего юзера
+    Game.where("user_id = ? AND finished_at IS ?", params[:user_id], nil).destroy_all
     @game = current_user.games.build(game_params)
 
     if @game.save
